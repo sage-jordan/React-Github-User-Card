@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { setState } from 'react';
 import './App.css';
+import axios from 'axios';
+import UserCard from './userCard';
 
-class MyApp extends React.Component() {
+class App extends React.Component() {
   constructor(){
     super();
     this.state = {
@@ -9,12 +11,17 @@ class MyApp extends React.Component() {
     }
   }
   componentDidMount(){
-    axios
+    axios.get("https://api.github.com/users/sage-jordan")
+      .then(res => setState({
+        user: res
+      }))
+      .catch(err => console.log(err));
   }
   render (){
     return (
       <div className="App">
         <h1>"My GitHub App"</h1>
+        <UserCard user={this.state}/>
       </div>
     );
   }
