@@ -8,7 +8,7 @@ class App extends Component {
     super();
     console.log("Constructor Function")
     this.state = {
-      
+      userData: {}
     }
   }
   componentDidMount(){ 
@@ -20,14 +20,13 @@ class App extends Component {
       .catch(err => console.log(err));
   }
   render (){
-    console.log("Render");
+    console.log("Render", this.state);
     return (
       <div className="App">
         <h1>"My GitHub App"</h1>
-        <UserCard userData={this.state}/>
+        <UserCard userData={this.state.userData}/>
       </div>
     );
   }
 }
-
 export default App;
