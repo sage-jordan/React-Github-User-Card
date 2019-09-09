@@ -8,18 +8,18 @@ class UserCard extends Component {
             
         }
     }
+
     render() {
         console.log("2nd Render:", this.props.userData);
         const user = this.props.userData;
         return (
             <div className="userCard">
-                <h1>UserCard</h1>
                 <Card
                     image={user.avatar_url}
-                    header={user.name}
+                    header={user.login}
                     meta={user.type}
                     description={user.bio}
-                    extra={user.location}
+                    extra={`User ID: ${user.id}`}
                 />
             </div>
         )
