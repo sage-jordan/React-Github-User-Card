@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card } from 'semantic-ui-react';
 
 class UserCard extends Component {
     constructor(props){
@@ -9,10 +10,17 @@ class UserCard extends Component {
     }
     render() {
         console.log("2nd Render:", this.props.userData);
+        const user = this.props.userData;
         return (
             <div className="userCard">
                 <h1>UserCard</h1>
-                <h2>{`Login: ${this.props.userData.login}`}</h2>
+                <Card
+                    image={user.avatar_url}
+                    header={user.name}
+                    meta={user.type}
+                    description={user.bio}
+                    extra={user.location}
+                />
             </div>
         )
     }   
