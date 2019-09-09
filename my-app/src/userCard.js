@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 
 class UserCard extends Component {
     constructor(props){
-        super();
+        super(props);
         this.state = {
-            userData: props
+            
         }
     }
     render() {
-        console.log("2nd Render:", this.state);
+        console.log("2nd Render:", this.props.userData);
         return (
             <div className="userCard">
                 <h1>UserCard</h1>
-                <h2>{`Login: ${this.state.login}`}</h2>
+                <h2>{`Login: ${this.props.userData.login}`}</h2>
             </div>
         )
     }   
